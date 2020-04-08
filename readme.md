@@ -1,3 +1,14 @@
+
+使用说明：
+    1.composer install
+    2.复制.env.example 为.env
+    3.创建vhost主机 或者 php artisan serve
+    4.enjoy it!! 
+    tips1:wanzhoujob.postman_test.json 为 postman接口测试
+    tips2:test数据.sql 为 数据库测试数据
+    
+
+
 v1.0上线
 
     1.jsonResponse封装
