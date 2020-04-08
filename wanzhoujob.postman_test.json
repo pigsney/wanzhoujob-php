@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "9ddd1f8f-4a72-451a-baa0-a6ff0eaf5832",
+		"name": "wanzhoujob",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "新增一场招聘会",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "holding_time",
+							"value": "2020-5-13",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "综合型人才招聘会",
+							"type": "text"
+						},
+						{
+							"key": "host_unit",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "introduce",
+							"value": "招聘会的简介",
+							"type": "text"
+						},
+						{
+							"key": "venue",
+							"value": "万州区金泉路1号汇杰人才市场（光彩市场旁）",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "023-58580808",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/job_fair",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"job_fair"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加参会企业",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "company_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/job_fair/1/company",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"job_fair",
+						"1",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "移除一场参会企业",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/job_fair/1/company/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"job_fair",
+						"1",
+						"company",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "招聘会详情",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/job_fair/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"job_fair",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参会企业总数",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/job_fair/company?take=2&recruitment_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"job_fair",
+						"company"
+					],
+					"query": [
+						{
+							"key": "take",
+							"value": "2"
+						},
+						{
+							"key": "recruitment_id",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加分类",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "names[0]",
+							"value": "制造业",
+							"type": "text"
+						},
+						{
+							"key": "names[1]",
+							"value": "综合业",
+							"type": "text"
+						},
+						{
+							"key": "names[2]",
+							"value": "生物科技2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/category",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看所有分类",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/category?limit=2&page=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"category"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增企业",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "重庆星米文化传媒有限公司",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "重庆星米文化传媒有限公司",
+							"type": "text"
+						},
+						{
+							"key": "nature",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "scale",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "welfare[0]",
+							"value": "包吃",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"value": "http://store.wanzhoujob.com/Upload/logo/201905/1558411345dkilv.jpg",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "https://www.wanzhoujob.com/comabout_6e967133087.html",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "北山大道渝东花园路53号3-1",
+							"type": "text"
+						},
+						{
+							"key": "standby_address",
+							"value": "北山大道渝东花园路53号3-1",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "023-583***28",
+							"type": "text"
+						},
+						{
+							"key": "landline",
+							"value": "023-583***28",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "22323@qq.com",
+							"type": "text"
+						},
+						{
+							"key": "welfare[1]",
+							"value": "包住",
+							"type": "text"
+						},
+						{
+							"key": "welfare[2]",
+							"value": "培训",
+							"type": "text"
+						},
+						{
+							"key": "welfare[3]",
+							"value": "旅游",
+							"type": "text"
+						},
+						{
+							"key": "welfare[4]",
+							"value": "岗位晋升",
+							"type": "text"
+						},
+						{
+							"key": "welfare[5]",
+							"value": "奖金提成",
+							"type": "text"
+						},
+						{
+							"key": "introduce",
+							"value": "星米文化传媒是一家集线上线下为一体的网络直播传媒公司。公司位于300多平的写字楼。有独立的更衣室，服装间。会议室。各部门分工明确。重点在于打造网络一线主播，培养网红，微电影演员等。只要你有梦想那就赶快联系我，让我们一起携手共进，砥砺前行",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/company",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看所有企业下的岗位",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/company/1/jobs?limit=2&page=1&job_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"company",
+						"1",
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "job_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增岗位",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "job_title",
+							"value": "主播",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "不限",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "education",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "work_experience",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "requirements",
+							"value": "本公司需要活泼开朗的人才 能说会道 会才艺的优先 觉得自己有能力的都可以来试试 想咨询的可以直接加V ：yqw957 欢迎大家加入我们的团队！",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "salary_above",
+							"value": "2500",
+							"type": "text"
+						},
+						{
+							"key": "salary_below",
+							"value": "30000",
+							"type": "text"
+						},
+						{
+							"key": "min_age",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "max_age",
+							"value": "27",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/jobs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看所有岗位",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/jobs?page=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "给企业绑定岗位",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "job_ids[0]",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "job_ids[1]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "job_ids[2]",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/company/2/jobs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"company",
+						"2",
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "生成二维码",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/make/qr_code",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"make",
+						"qr_code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "给企业绑定分类",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_ids[0]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category_ids[1]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "category_ids[2]",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/company/2/category",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"company",
+						"2",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "企业详情",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/company/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"company",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
