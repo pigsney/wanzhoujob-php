@@ -6,7 +6,7 @@ namespace App\Enums;
 
 use Illuminate\Support\Collection;
 
-class BaseEnum
+abstract class BaseEnum
 {
     /**
      * 返回所有enum的值

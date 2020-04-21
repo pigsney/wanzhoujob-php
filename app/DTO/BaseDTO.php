@@ -4,7 +4,7 @@
 namespace App\DTO;
 
 
-class BaseDTO
+abstract class BaseDTO
 {
 
 }

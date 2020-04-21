@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Traits\PaginationTrait;
 
-class BaseService
+abstract class BaseService
 {
     use PaginationTrait;
 }
