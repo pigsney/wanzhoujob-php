@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::get('/make/qr_code','UserController@makeQrCode');//生成推广人员的二维码
 Route::get('job_fair/company','JobFairCompanyController@index');
 Route::apiResources([
+    'resume' => 'ResumeController',
     'company' => 'CompanyController',
     'company.jobs' => 'CompanyJobController',
     'jobs' => 'JobController',
