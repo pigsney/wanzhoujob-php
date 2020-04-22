@@ -15,6 +15,7 @@ class Education extends BaseEnum
     const MASTER = 7;
     const DOCTOR = 8;
     const GRADUATE_STUDENT = 9;
+    const POLYTECHNIC_SCHOOL = 10;
 
 
 
@@ -30,6 +31,7 @@ class Education extends BaseEnum
             self::MASTER                       => '硕士',
             self::DOCTOR                       => '博士',
             self::GRADUATE_STUDENT             => '研究生',
+            self::POLYTECHNIC_SCHOOL           => '中专',
         ];
     }
 }

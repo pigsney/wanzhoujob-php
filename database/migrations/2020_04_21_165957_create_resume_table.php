@@ -27,7 +27,8 @@ class CreateResumeTable extends Migration
             $table->string('phone')->comment('电话');
             $table->string('email')->comment('邮箱');
             $table->string('introduce')->comment('自我评价');
-            $table->tinyInteger('work_status')->comment('在职状态');
+            $table->tinyInteger('job_status')->comment('在职状态');
+            $table->tinyInteger('educational_level')->comment('学历');
             $table->string('photo')->comment('头像');
             $table->json('job_intention')->comment('求职意向');
             $table->json('work_history')->comment('工作经历');
