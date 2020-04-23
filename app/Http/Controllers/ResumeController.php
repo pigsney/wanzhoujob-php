@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 
 
 use App\Enums\Sex;
-use App\Http\Requests\ResumeRequest;
+use App\Http\Requests\Api\ResumeRequest;
 
 class ResumeController extends Controller
 {
-    public function store()
+    public function store(ResumeRequest $request)
     {
-    dd(Sex::getValues()->take(2)->implode(','));
-    $request = request();
+    dd(1);
         $name = $request->get('name');
         $sex = $request->get('sex');
         $birthday = $request->get('birthday');
