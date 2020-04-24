@@ -76,7 +76,10 @@ class ResumeService extends BaseService
     {
         try {
             Storage::deleteDirectory('resume_avatars');
-            $path = $photo->storeAs('resume_avatars',md5($phone).'.jpeg');
+            $nameList = explode('.',$photo->getClientOriginalName());
+            $extension = last($nameList);
+            $fileName = base64_encode($phone.'-'.now()->timestamp).'.'.$extension;
+            $path = $photo->storeAs('resume_avatars',$fileName);
             $model->setAttribute('photo',json_encode([
                 'real_path' => asset('storage/'.$path),
                 'cut_size' => '400*400',
@@ -84,7 +87,7 @@ class ResumeService extends BaseService
                 'size' => $photo->getSize()
              ]));
         }catch (\Exception $exception){
-            dd($exception);
+
         }
 
     }
