@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class Whether extends BaseEnum
 {
     const YES = 1;

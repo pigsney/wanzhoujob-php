@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class SkillLevel extends BaseEnum
 {
     const BEGINNER= 1;

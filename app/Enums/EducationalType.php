@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class EducationalType extends BaseEnum
 {
     const ACADEMIC_EDUCATION = 1;

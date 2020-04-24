@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class JobStatus extends BaseEnum
 {
     const NOT_WORK_LOOKING_JOB= 1;

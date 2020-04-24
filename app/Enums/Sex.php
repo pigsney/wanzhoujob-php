@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class Sex extends BaseEnum
 {
     const ALL = 1;

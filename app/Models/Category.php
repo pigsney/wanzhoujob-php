@@ -4,6 +4,8 @@ namespace App\Models;
 
 
 
+use App\Kernels\BaseModel;
+
 class Category extends BaseModel
 {
     protected $table = "category";

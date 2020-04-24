@@ -4,10 +4,10 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
+use App\Kernels\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CompanyJobMap extends Model
+class CompanyJobMap extends BaseModel
 {
     use SoftDeletes;
     protected $table = 'company_job_maps';

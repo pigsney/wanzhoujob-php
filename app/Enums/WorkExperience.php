@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class WorkExperience extends BaseEnum
 {
     const ALL = 1;

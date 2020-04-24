@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class CompanyNature extends BaseEnum
 {
     const JOINT_VENTURE = 1;

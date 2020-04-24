@@ -178,6 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\ResponseMacroServiceProvider::class, //自定义响应,
         \SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class, //图片处理裁剪
+
 
     ],
 
@@ -227,6 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

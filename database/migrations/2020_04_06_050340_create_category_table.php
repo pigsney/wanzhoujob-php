@@ -15,10 +15,12 @@ class CreateCategoryTable extends Migration
     {
         Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->nullable(false)->default("");
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->softDeletes();});
+            $table->softDeletes();
+        });
+        \DB::statement("ALTER TABLE `category` comment '分类表'");
     }
 
     /**

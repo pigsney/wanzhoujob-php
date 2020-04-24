@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class JobFairStatus extends BaseEnum
 {
     const ENABLE_RESERVE = 1;

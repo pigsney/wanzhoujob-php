@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class LanguageLevel extends BaseEnum
 {
     const NOT_TEST= 0;

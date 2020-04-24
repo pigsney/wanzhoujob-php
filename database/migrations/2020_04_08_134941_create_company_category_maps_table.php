@@ -21,6 +21,7 @@ class CreateCompanyCategoryMapsTable extends Migration
             $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
         });
+        \DB::statement("ALTER TABLE `company_category_maps` comment '企业-分类关系表'");
     }
 
     /**

@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class MaritalStatus extends BaseEnum
 {
     const SINGLE = 1;

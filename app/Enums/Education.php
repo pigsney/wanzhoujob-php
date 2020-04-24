@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class Education extends BaseEnum
 {
     const ALL = 1;

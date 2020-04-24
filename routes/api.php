@@ -18,14 +18,26 @@ use Illuminate\Http\Request;
 //});
 
 Route::get('/make/qr_code','UserController@makeQrCode');//生成推广人员的二维码
-Route::get('job_fair/company','JobFairCompanyController@index');
-Route::apiResources([
-    'resume' => 'ResumeController',
-    'company' => 'CompanyController',
-    'company.jobs' => 'CompanyJobController',
-    'jobs' => 'JobController',
-    'category' => 'CategoryController',
-    'job_fair' => 'JobFairController',
-    'job_fair.company' => 'JobFairCompanyController',
-    'company.category' => 'CompanyCategoryController',
-]);
+Route::namespace('Resume')->group(function (){
+    Route::apiResource('resume','ResumeController');
+});
+
+Route::namespace('Company')->group(function (){
+    Route::apiResource('company','CompanyController');
+    Route::apiResource('company.jobs','CompanyJobController');
+    Route::apiResource('company.category','CompanyCategoryController');
+});
+
+Route::namespace('Job')->group(function (){
+    Route::apiResource('jobs','JobController');
+});
+
+Route::namespace('JobFair')->group(function (){
+    Route::apiResource('job_fair','JobFairController');
+    Route::get('job_fair/company','JobFairCompanyController@index');
+    Route::apiResource('job_fair.company','JobFairCompanyController');
+});
+
+Route::namespace('Category')->group(function (){
+    Route::apiResource('category','CategoryController');
+});

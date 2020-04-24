@@ -21,6 +21,7 @@ class CreateCompanyJobMapsTable extends Migration
             $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
         });
+        \DB::statement("ALTER TABLE `company_job_maps` comment '企业—岗位关系表'");
     }
 
     /**

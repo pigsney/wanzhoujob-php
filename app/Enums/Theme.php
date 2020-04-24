@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class Theme extends BaseEnum
 {
     const HOBBY= 1;

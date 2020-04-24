@@ -4,6 +4,8 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
+
 class CompanyScale extends BaseEnum
 {
     const PEOPLE_0_TO_50 = 1;

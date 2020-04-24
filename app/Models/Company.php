@@ -4,9 +4,9 @@ namespace App\Models;
 
 use App\Enums\CompanyNature;
 use App\Enums\CompanyScale;
-use Illuminate\Database\Eloquent\Model;
+use App\Kernels\BaseModel;
 
-class Company extends Model
+class Company extends BaseModel
 {
     protected $table = "company";
 

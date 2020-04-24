@@ -21,6 +21,7 @@ class CreateJobFairCompanyMapsTable extends Migration
             $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
         });
+        \DB::statement("ALTER TABLE `job_fair_company_maps` comment '招聘会—企业关系表'");
     }
 
     /**

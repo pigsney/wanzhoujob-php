@@ -4,6 +4,7 @@
 namespace App\Enums;
 
 
+use App\Kernels\BaseEnum;
 use Illuminate\Support\Collection;
 
 class LanguageType extends BaseEnum
