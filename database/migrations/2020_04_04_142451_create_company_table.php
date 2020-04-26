@@ -17,11 +17,11 @@ class CreateCompanyTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable(false)->default("")->comment('公司名称');
             $table->string('full_name')->nullable(false)->default("")->comment('公司全称');
-            $table->string('introduce')->nullable(false)->default("")->comment('公司简介-介绍');
+            $table->text('introduce')->nullable(false)->comment('公司简介-介绍');
             $table->tinyInteger('nature')->nullable(false)->default(0)->comment('公司性质');
             $table->tinyInteger('scale')->nullable(false)->default(0)->comment('公司规模');
             $table->json('welfare')->comment('公司福利');
-            $table->json('logo')->comment('公司logo图片');
+            $table->json('logo')->nullable(true)->comment('公司logo图片');
             $table->string('url')->nullable(false)->default("")->comment('公司url地址');
             $table->string('address')->nullable(false)->default("")->comment('公司地址');
             $table->string('standby_address')->nullable(false)->default("")->comment('公司备用名称');

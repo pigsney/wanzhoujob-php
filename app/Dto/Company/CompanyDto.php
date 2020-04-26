@@ -5,6 +5,7 @@ namespace App\Dto\Company;
 
 
 use App\Kernels\BaseDto;
+use Illuminate\Http\UploadedFile;
 
 class CompanyDto extends BaseDto
 {
@@ -36,9 +37,25 @@ class CompanyDto extends BaseDto
     private $name;
 
     /**
-     * @var string | null
+     * @var UploadedFile | null
      */
     private $logo;
+
+    /**
+     * @return UploadedFile|null
+     */
+    public function getLogo(): ?UploadedFile
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param UploadedFile|null $logo
+     */
+    public function setLogo(?UploadedFile $logo): void
+    {
+        $this->logo = $logo;
+    }
 
     /**
      * @var string | null
@@ -132,21 +149,6 @@ class CompanyDto extends BaseDto
         $this->name = $name;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getLogo(): ?string
-    {
-        return $this->logo;
-    }
-
-    /**
-     * @param string|null $logo
-     */
-    public function setLogo(?string $logo): void
-    {
-        $this->logo = $logo;
-    }
 
     /**
      * @return string|null

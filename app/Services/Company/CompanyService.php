@@ -11,7 +11,10 @@ use App\Exceptions\InvalidArgumentException;
 use App\Exceptions\NotFoundException;
 use App\Kernels\BaseService;
 use App\Models\Company;
+use App\Utils\CutImageSize;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyService extends BaseService
 {
@@ -77,13 +80,16 @@ class CompanyService extends BaseService
     private function fillCompanyData(CompanyDto $paramsDto, Company $model=null) : Company
     {
         $model = $model ?? new Company();
+        /** @var UploadedFile $photo */
+        $logo = $paramsDto->getLogo();
+        $name = strval($paramsDto->getName() ?? data_get($model,'name'));
+        if ($logo) $this->uploadCompanyLogo($model,$logo,$name);
         return $model->fill([
-            'name'            => strval($paramsDto->getName() ?? data_get($model,'name')),
+            'name'            => $name,
             'full_name'       => strval($paramsDto->getFullName() ?? data_get($model,'full_name')),
             'nature'          => intval($paramsDto->getNature() ?? data_get($model,'nature')),
             'scale'           => intval($paramsDto->getScale() ?? data_get($model,'scale')),
             'welfare'         => json_encode($paramsDto->getWelfare()) ?? data_get($model,'welfare'),
-            'logo'            => strval($paramsDto->getLogo() ?? data_get($model,'logo')),
             'url'             => strval($paramsDto->getUrl() ?? data_get($model,'url')),
             'address'         => strval($paramsDto->getAddress() ?? data_get($model,'address')),
             'standby_address' => strval($paramsDto->getStandbyAddress() ?? data_get($model,'standby_address')),
@@ -112,6 +118,30 @@ class CompanyService extends BaseService
         $data = data_get($result,'data');
         $pagination = data_get($result,'pagination');
         return $this->response->success($data,'',$pagination);
+    }
+
+    private function uploadCompanyLogo(Company $model,UploadedFile $logo,string $name) : void
+    {
+        try {
+            Storage::deleteDirectory('company_logos');
+            $nameList = explode('.',$logo->getClientOriginalName());
+            $extension = last($nameList);
+            $fileName = base64_encode($name).'.'.$extension;
+            $path = $logo->storeAs('company_logos',$fileName);
+            $realPath = 'storage/'.$path;
+            $cutSize = '158*158';
+            $cutPath = 'storage/company_logos/'.base64_encode($name.'-cut').'.'.$extension;
+            CutImageSize::cut($realPath,$cutPath,$cutSize);
+            $model->setAttribute('logo',json_encode([
+                'real_path' => asset($realPath),
+                'cut_size' => $cutSize,
+                'cut_real_path' => asset($cutPath),
+                'size' => $logo->getSize()
+            ]));
+        }catch (\Exception $exception){
+
+        }
+
     }
 
 }
