@@ -25,6 +25,8 @@ Route::namespace('Resume')->group(function (){
 Route::namespace('Company')->group(function (){
     Route::apiResource('company','CompanyController');
     Route::apiResource('company.jobs','CompanyJobController');
+    Route::post('company/job/resume','CompanyJobResumeController@delivery');
+    Route::apiResource('company.jobs.resume','CompanyJobController');
     Route::apiResource('company.category','CompanyCategoryController');
 });
 

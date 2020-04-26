@@ -4,11 +4,12 @@
 namespace App\Http\Controllers\JobFair;
 
 
-use App\Dto\JobFairCompanyDto;
-use App\Dto\JobFairCompanyListDto;
+
+use App\Dto\JobFair\JobFairCompanyDto;
+use App\Dto\JobFair\JobFairCompanyListDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\JobFair\JobFairCompanyRequest;
-use App\Services\JobFairCompanyService;
+use App\Services\JobFair\JobFairCompanyService;
 use Illuminate\Http\Request;
 
 class JobFairCompanyController extends Controller

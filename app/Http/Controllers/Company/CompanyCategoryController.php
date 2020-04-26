@@ -3,11 +3,13 @@
 
 namespace App\Http\Controllers\Company;
 
-use App\Dto\CompanyCategoryDto;
-use App\Dto\CompanyCategoryListDto;
+
+use App\Dto\Company\CompanyCategoryDto;
+use App\Dto\Company\CompanyCategoryListDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Company\CompanyCategoryRequest;
-use App\Services\CompanyCategoryService;
+use App\Services\Company\CompanyCategoryService;
+
 
 class CompanyCategoryController extends Controller
 {

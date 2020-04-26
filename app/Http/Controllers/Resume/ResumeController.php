@@ -20,7 +20,12 @@ class ResumeController extends Controller
         $this->service = $service;
     }
 
-
+    /**
+     * 保存和修改都是这个接口
+     * @param ResumeRequest $request
+     * @return mixed
+     * @throws \Exception
+     */
     public function store(ResumeRequest $request)
     {
         $addDto = new ResumeDto($request->all());

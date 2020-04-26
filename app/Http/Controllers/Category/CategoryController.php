@@ -4,10 +4,10 @@
 namespace App\Http\Controllers\Category;
 
 
-use App\Dto\CategoryDto;
-use App\Dto\CategoryListDto;
+use App\Dto\Category\CategoryDto;
+use App\Dto\Category\CategoryListDto;
 use App\Http\Requests\Api\Category\CategoryRequest;
-use App\Services\CategoryService;
+use App\Services\Category\CategoryService;
 
 class CategoryController
 {

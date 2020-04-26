@@ -3,12 +3,12 @@
 
 namespace App\Http\Controllers\Company;
 
-use App\Dto\CompanyJobDto;
-use App\Dto\CompanyJobListDto;
+
+use App\Dto\Company\CompanyJobDto;
+use App\Dto\Company\CompanyJobListDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Company\CompanyJobRequest;
-use App\Services\CompanyJobService;
-use App\Services\JobService;
+use App\Services\Company\CompanyJobService;
 
 class CompanyJobController extends Controller
 {

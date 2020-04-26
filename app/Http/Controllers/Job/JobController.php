@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Job;
 
-use App\Dto\JobDto;
-use App\Dto\JobListDto;
+
+use App\Dto\Job\JobDto;
+use App\Dto\Job\JobListDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Job\JobRequest;
 use App\Models\Job;
-use App\Services\JobService;
+use App\Services\Job\JobService;
 use Illuminate\Http\Request;
 
 class JobController extends Controller

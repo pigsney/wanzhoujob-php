@@ -15,6 +15,7 @@ class CreateJobResumeMapsTable extends Migration
     {
         Schema::create('job_resume_maps', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('company_id')->nullable(false)->default(0)->comment('企业id');
             $table->integer('job_id')->nullable(false)->default(0)->comment('岗位id');
             $table->integer('resume_id')->nullable(false)->default(0)->comment('简历id');
             $table->timestamp('created_at')->useCurrent();

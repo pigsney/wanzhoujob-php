@@ -16,7 +16,7 @@ class CreateCompanyJobMapsTable extends Migration
         Schema::create('company_job_maps', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('company_id');
-            $table->integer('job_id');
+            $table->integer('job_id')->unique()->nullable(false)->default(0)->comment('岗位id');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
