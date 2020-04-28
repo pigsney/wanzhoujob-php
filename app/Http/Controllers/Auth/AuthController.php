@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Auth;
 
 
-use App\Dto\AuthDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\AuthRequest;
 use App\Models\Staff;
