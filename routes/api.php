@@ -43,3 +43,9 @@ Route::namespace('JobFair')->group(function (){
 Route::namespace('Category')->group(function (){
     Route::apiResource('category','CategoryController');
 });
+
+Route::group(['middleware'=>'api','namespace'=>'Auth','prefix'=>'auth'],function (){
+    Route::post('login','AuthController@login');
+    Route::post('logout','AuthController@logout');
+    Route::post('refresh','AuthController@refresh');
+});
