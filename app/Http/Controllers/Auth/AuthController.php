@@ -11,6 +11,8 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
+
+    private $response;
     /**
      * 中间件去除login和refresh
      *
@@ -18,7 +20,9 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','refresh']]);
+        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('refresh.token',['only'=>'refresh']);
+        $this->response = response();
     }
 
 
@@ -30,33 +34,18 @@ class AuthController extends Controller
             ->where('password', md5($credentials['credential']))
             ->first();
         if (empty($staff) || !$token = JWTAuth::fromUser($staff)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return $this->response->fail(401,'Unauthorized');
         }
-        // dd($token);
 
         return $this->respondWithToken($token);
     }
 
-    /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function me()
-    {
-        return response()->json(auth('api')->user());
-    }
 
-    /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function logout()
     {
-        auth()->logout();
+        auth('api')->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return $this->response->success();
     }
 
     /**
@@ -78,7 +67,7 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
+        return $this->response->success([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60

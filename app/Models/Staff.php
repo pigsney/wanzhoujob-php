@@ -3,30 +3,25 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Middleware\Authenticate;
-use Illuminate\Notifications\Notifiable;
+
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class Staff extends Authenticate implements JWTSubject
+class Staff extends User implements JWTSubject
 {
 
-    use Notifiable;
-
-    protected $table = 'staff';
-
-    protected $fillable = [
-        'id_number','email','password'
-    ];
-
-    protected $hidden =['password','remember_token'];
 
 
+    /**
+     * @inheritDoc
+     */
     public function getJWTIdentifier()
     {
-        return $this->geKey();
+        return $this->getKey();
     }
 
-
+    /**
+     * @inheritDoc
+     */
     public function getJWTCustomClaims()
     {
         return [];

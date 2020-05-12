@@ -45,7 +45,9 @@ Route::namespace('Category')->group(function (){
 });
 
 Route::group(['middleware'=>'api','namespace'=>'Auth','prefix'=>'auth'],function (){
-    Route::post('login','AuthController@login');
     Route::post('logout','AuthController@logout');
+    Route::post('login','AuthController@login');
+});
+Route::group(['middleware'=>'refresh.token','namespace'=>'Auth','prefix'=>'auth'],function (){
     Route::post('refresh','AuthController@refresh');
 });
